@@ -8,9 +8,9 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({text, className}) => {
-    return (
-      <button className={'button ' + className}>{text}</button>
-    );
+  return (
+    <button className={'button ' + className}>{text}</button>
+  );
 };
 
 export default Button;

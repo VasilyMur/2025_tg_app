@@ -2,6 +2,7 @@ import { type TelegramWebapp } from "../types/global";
 
 // @ts-expect-error test remove
 const tg: TelegramWebapp  = window?.Telegram.WebApp;
+console.log('tg >>>>>>>>> ', tg);
 
 // if (window?.Telegram?.WebApp.initData) {
 //   tg = window.Telegram?.WebApp;
