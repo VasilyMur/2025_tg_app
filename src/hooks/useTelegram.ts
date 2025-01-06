@@ -11,7 +11,7 @@ console.log('tg >>>>>>>>> ', tg);
 export function useTelegram() {
 
   const onClose = () => {
-      tg.close()
+    tg.close()
   }
 
   const onToggleButton = () => {

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Button from "../Button/Button";
 import './ProductItem.css';
 
 interface IProduct {
@@ -29,11 +28,9 @@ const ProductItem: FC<IProductItemProps> = ({product, className, onAdd}) => {
       <div className={'price'}>
           <span>Стоимость: <b>{product.price}</b></span>
       </div>
-      <Button 
-        className={'add-btn'} 
-        onClick={onAddHandler} 
-        text="Добавить в корзину"
-      />
+      <button onClick={onAddHandler} className={'button add-btn'}>
+        Добавить
+      </button>
     </div>
   );
 };
