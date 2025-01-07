@@ -29,8 +29,22 @@ const getTotalPrice = (items: IProduct[] = []) => {
 }
 
 const ProductList = () => {
-  const [addedItems, setAddedItems] = useState<IProduct[]>([]);
+  const [addedItems, 
+   // setAddedItems
+  ] = useState<IProduct[]>([]);
   const {tg, queryId} = useTelegram();
+
+  const onAdd = async () => {
+    console.log('now fetch')
+    fetch('http://localhost:8000/web-data', {
+      // fetch('http://85.119.146.179:8000/web-data', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify('yes')
+      })
+  } 
 
   const onSendData = useCallback(() => {
       const data = {
@@ -38,7 +52,9 @@ const ProductList = () => {
           totalPrice: getTotalPrice(addedItems),
           queryId,
       }
-      fetch('http://85.119.146.179:8000/web-data', {
+    
+      fetch('http://localhost:8000/web-data', {
+      // fetch('http://85.119.146.179:8000/web-data', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -54,27 +70,27 @@ const ProductList = () => {
       }
   }, [onSendData])
 
-  const onAdd = (product: IProduct) => {
-    const alreadyAdded = addedItems.find(item => item.id === product.id);
-    let newItems = [];
+  // const onAdd = (product: IProduct) => {
+  //   const alreadyAdded = addedItems.find(item => item.id === product.id);
+  //   let newItems = [];
 
-    if(alreadyAdded) {
-        newItems = addedItems.filter(item => item.id !== product.id);
-    } else {
-        newItems = [...addedItems, product];
-    }
+  //   if(alreadyAdded) {
+  //       newItems = addedItems.filter(item => item.id !== product.id);
+  //   } else {
+  //       newItems = [...addedItems, product];
+  //   }
 
-    setAddedItems(newItems)
+  //   setAddedItems(newItems)
 
-    if(newItems.length === 0) {
-        tg.MainButton.hide();
-    } else {
-        tg.MainButton.show();
-        tg.MainButton.setParams({
-            text: `Купить ${getTotalPrice(newItems)}`
-        })
-    }
-  }
+  //   if(newItems.length === 0) {
+  //       tg.MainButton.hide();
+  //   } else {
+  //       tg.MainButton.show();
+  //       tg.MainButton.setParams({
+  //           text: `Купить ${getTotalPrice(newItems)}`
+  //       })
+  //   }
+  // }
 
   return (
     <div className={'list'}>
