@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './ProductList.css';
+import axios from 'axios';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
@@ -36,14 +37,17 @@ const ProductList = () => {
 
   const onAdd = async () => {
     console.log('now fetch')
-    fetch('http://localhost:8000/web-data', {
-      // fetch('http://85.119.146.179:8000/web-data', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify('yes')
-      })
+    const response = await axios.post('http://localhost:8000/web-data', {test: 'true'});
+    console.log('repsonse >>>>> ', response.data);
+
+    // fetch('http://localhost:8000/web-data', {
+    //   // fetch('http://85.119.146.179:8000/web-data', {
+    //       method: 'POST',
+    //       headers: {
+    //           'Content-Type': 'application/json',
+    //       },
+    //       body: JSON.stringify('yes')
+    //   })
   } 
 
   const onSendData = useCallback(() => {
