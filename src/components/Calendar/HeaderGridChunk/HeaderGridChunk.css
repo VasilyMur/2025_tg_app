@@ -1,0 +1,22 @@
+.calendar-header-container {
+  margin-bottom: 16px;
+  padding: 0 12px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: calc((100% - 280px) / 7);
+}
+
+.calendar-header-day {
+  margin: 0 auto;
+  color: #808080;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 4px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

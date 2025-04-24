@@ -80,5 +80,12 @@ type TelegramTheme = {
   };
  } | null;
  
- 
+export type WeekDayName = 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
+
+export type CalendarDay = {
+  number: number, 
+  active: boolean, 
+  hl: boolean,
+  id: string,
+}
  // export const window: Window;
